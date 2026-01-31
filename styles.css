@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;600;700&family=Montserrat:wght@400;500;600;700&display=swap");
 
 /* Tema y tokens */
 :root {
@@ -16,7 +16,8 @@
   --radius-md: 14px;
   --radius-sm: 10px;
   --gap: 16px;
-  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+  --font-elegant: "Cormorant Garamond", "Georgia", serif;
 }
 
 /* Reset y base */
@@ -97,18 +98,19 @@ h1 {
   margin: 0 0 8px;
   padding-top: 10px;
   padding-bottom: 10px;
-  font-family: -apple-system;
-  font-size: 45px;
+  font-family: var(--font-elegant);
+  font-weight: 600;
+  font-size: clamp(24px, 5vw, 45px);
   width: 100%;
   background-image:rgb(233, 229, 226) 100%;
   -webkit-background-clip: text;
   background-clip: text;
   color: rgba(203, 191, 181, 1);
-  letter-spacing: -0.5px;
+  letter-spacing: 0.02em;
 }
 
 h1.menu-title {
-  font-size: 30px;
+  font-size: clamp(22px, 4vw, 30px);
   width: 100%;
 }
 
@@ -120,23 +122,53 @@ h1.menu-title {
   color: rgba(198, 186, 176, 0.8);
 }
 
+.logo-subtitle {
+  font-family: var(--font-body);
+  font-size: clamp(9px, 2vw, 12px);
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(203, 191, 181, 0.9);
+  margin-top: 4px;
+  margin-bottom: 0;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
 .header-divider {
   display: block;
   width: 60px;
   height: 2px;
   background: var(--color-accent);
   border-radius: 999px;
-  margin: 8px 0 4px;
+  margin: 4px 0 4px;
   opacity: 0.85;
 }
 
+.logo-wrap {
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .logo {
-  width: 1000px;
-  height: 110px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  padding-top: 6px;
+  padding-bottom: 4px;
+  margin-bottom: 12px;
   border-radius: var(--radius-lg);
   object-fit: contain;
+  object-position: center;
+  background: transparent;
   filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.35)) drop-shadow(0 10px 30px rgba(0, 0, 0, 0.25));
 }
 
@@ -240,9 +272,10 @@ a.card {
 /* Títulos de sección */
 .section-title {
   margin: 10px 0 12px;
-  font-size: 20px;
-  font-weight: 700;
-  letter-spacing: 0.2px;
+  font-family: var(--font-elegant);
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
   color: rgba(203, 191, 181, 1);
   display: flex;
   align-items: center;
@@ -255,6 +288,58 @@ a.card {
   height: 2px;
   background: var(--color-accent);
   border-radius: 999px;
+}
+
+/* Index: tipo de letra, fuente y anchura */
+body.page-index {
+  font-family: "Montserrat", sans-serif;
+}
+body.page-index .page {
+  width: min(960px, 100%);
+}
+body.page-index h1 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+body.page-index h1.menu-title {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+body.page-index p.lead {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+body.page-index .section-title {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+}
+body.page-index .card span {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+body.page-index .grid {
+  gap: 14px;
+}
+body.page-index .card {
+  min-width: 0;
+}
+body.page-index .footer {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+body.page-index .tragos-card span {
+  font-family: "Montserrat", sans-serif;
+}
+body.page-index .tragos-title {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-weight: 600;
+  letter-spacing: 0.1em;
 }
 
 /* Contenedor de productos */
@@ -580,10 +665,18 @@ a.card {
   letter-spacing: 0.3px;
 }
 
-/* Responsive */
+/* ========== RESPONSIVE ========== */
+
 @media (max-width: 640px) {
   body {
     padding: 26px 16px 36px;
+  }
+
+  .logo {
+    width: 70vw;
+    max-width: 280px;
+    margin-bottom: 16px;
+    padding-bottom: 4px;
   }
 
   .grid {
