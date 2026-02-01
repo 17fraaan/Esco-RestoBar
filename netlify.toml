@@ -1,0 +1,4 @@
+# Netlify: sitio estático (HTML/CSS), sin build
+[build]
+  publish = "."
+  command = ""
