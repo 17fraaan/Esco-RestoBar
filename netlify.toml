@@ -1,4 +1,4 @@
-# Netlify: sitio estático (HTML/CSS), sin build
+# Netlify: sitio estático. El build copia archivos a public/ para evitar 404.
 [build]
-  publish = "."
-  command = ""
+  command = "mkdir -p public && cp index.html styles.css 404.html public/ && cp -r assets pages public/"
+  publish = "public"
